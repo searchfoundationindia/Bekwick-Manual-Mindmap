@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bekwick Equine Nutrition – Glossary Mind Map</title>
+<style>
+:root{--bg:#f6f4ee;--panel:#fffdf8;--ink:#1f2a24;--mute:#66706a;--line:#c9c5b8;--pill:#fffdf8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14201b;--panel:#1b2a23;--ink:#ecece4;--mute:#9aa8a0;--line:#3b4d44;--pill:#20322a}}
+:root[data-theme="dark"]{--bg:#14201b;--panel:#1b2a23;--ink:#ecece4;--mute:#9aa8a0;--line:#3b4d44;--pill:#20322a}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Iowan Old Style",serif}
+h1{font-size:1.5rem;margin:0 0 .2rem;font-weight:700;letter-spacing:.01em}
+header{padding:1rem 1rem .5rem;max-width:1400px;margin:auto}
+header p{margin:0;color:var(--mute);font-family:system-ui,sans-serif;font-size:.9rem;max-width:70ch}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.8rem;font-family:system-ui,sans-serif}
+.bar input{padding:.5rem .7rem;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);min-width:200px;font-size:.9rem}
+.chip{border:1.5px solid var(--c);color:var(--ink);background:transparent;border-radius:999px;padding:.25rem .65rem;font-size:.78rem;cursor:pointer;font-family:system-ui,sans-serif}
+.chip.on{background:var(--c);color:#fff}
+.chip:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+main{display:grid;grid-template-columns:1fr;gap:.8rem;padding:0 1rem 1rem;max-width:1400px;margin:auto}
+@media(min-width:900px){main{grid-template-columns:1fr 340px}}
+.map{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--panel);height:68vh;min-height:420px;overflow:hidden}
+svg{width:100%;height:100%;touch-action:none;cursor:grab;display:block}
+.zoom{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px}
+.zoom button{width:34px;height:34px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;font-size:1.1rem;cursor:pointer}
+.side{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:1rem;font-family:system-ui,sans-serif;align-self:start;max-height:68vh;overflow:auto}
+.side h2{font-family:Georgia,serif;font-size:1.25rem;margin:.2rem 0 .3rem}
+.tag{display:inline-block;color:#fff;border-radius:6px;padding:.1rem .5rem;font-size:.75rem}
+.side p{line-height:1.5;font-size:.93rem;margin:.6rem 0}
+.side h3{font-size:.8rem;color:var(--mute);margin:1rem 0 .4rem;font-weight:600}
+.rel{display:flex;flex-wrap:wrap;gap:.35rem}
+.rel button{border:1px solid var(--c);background:transparent;color:var(--ink);border-radius:6px;padding:.2rem .5rem;font-size:.8rem;cursor:pointer}
+.hint{color:var(--mute);font-size:.9rem;line-height:1.5}
+#list{grid-column:1/-1;font-family:system-ui,sans-serif}
+#list h2{font-size:1rem;margin:1rem 0 .4rem;padding-left:.6rem;border-left:5px solid var(--c);font-family:Georgia,serif}
+#list details{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin:.35rem 0;padding:.1rem .8rem}
+#list summary{padding:.7rem 0;cursor:pointer;font-weight:600;font-size:.95rem}
+#list details p{margin:.2rem 0 .6rem;line-height:1.5;font-size:.92rem}
+.listmode .map,.listmode .side{display:none}
+.fu{margin:.2rem 0 .4rem;padding-left:1.1rem;line-height:1.5;font-size:.9rem}.fu li{margin:.2rem 0}
+#list h3{font-size:.8rem;color:var(--mute);margin:.6rem 0 .3rem;font-weight:600}
+@media(max-width:899px){
+h1{font-size:1.2rem}
+header{padding:.7rem .8rem .3rem}
+header p{display:none}
+.bar{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.4rem;margin-top:.5rem;-webkit-overflow-scrolling:touch}
+.bar input{min-width:150px;flex:0 0 auto;font-size:16px}
+.chip{white-space:nowrap;flex:0 0 auto;padding:.45rem .85rem;font-size:.85rem}
+main{padding:0 .6rem .8rem;gap:.6rem}
+.map{position:sticky;top:0;z-index:2;height:52vh;height:52svh;min-height:300px}
+.side{max-height:none;padding:.8rem}
+.rel button{padding:.45rem .75rem;font-size:.9rem}
+.zoom button{width:42px;height:42px}
+}
+.node{cursor:pointer;transition:opacity .15s}
+.node text{font-family:system-ui,sans-serif;pointer-events:none}
+.dim{opacity:.13}
+.edge{fill:none;stroke:var(--line);stroke-width:1.2}
+.x{fill:none;stroke-width:1;opacity:.16}
+.x.hi{opacity:.95;stroke-width:2.2}
+</style>
+</head>
+<body>
+<header>
+<h1>Bekwick Equine Nutrition: glossary mind map</h1>
+<p>Every term from the product manual, grouped by topic and linked to related terms. Select a term to see its meaning and connections. Drag to pan, scroll or use the buttons to zoom.</p>
+<div class="bar"><input id="q" type="search" placeholder="Search a term…" aria-label="Search terms"><button class="chip" id="vt" style="--c:#1f3d2f">List view</button><span id="chips" style="display:contents"></span></div>
+</header>
+<main>
+<div class="map"><svg id="svg" aria-label="Glossary mind map"></svg>
+<div class="zoom"><button id="zi" aria-label="Zoom in">+</button><button id="zo" aria-label="Zoom out">−</button><button id="zr" aria-label="Reset view">⟲</button></div></div>
+<aside class="side" id="side"><p class="hint">Select any term on the map. The ten topic groups sit on the inner ring; terms branch out from them, and the dashed boxes on the outer ring are Bekwick products. Thin curved lines link related terms and products across groups. Pinch or scroll to zoom, drag to pan, tap a topic chip to jump to its group, or switch to List view for plain text.</p></aside>
+<div id="list" hidden></div>
+</main>
+<script>
+const C={a:["Amino acids & protein","#d1493a"],e:["Energy & electrolytes","#d98a1f"],b:["Bone & minerals","#8a6d3b"],j:["Joint & connective tissue","#2f8f6b"],g:["Gut & hydration","#3b86c4"],r:["Respiratory & blood","#7a56b5"],h:["Hoof, coat & skin","#b8478a"],o:["Antioxidants","#4a9a2f"],v:["Vitamins & behaviour","#0f8c9a"],q:["Quality & usage","#5d6b75"]};
+// id|cat|name|meaning|related ids|seen in
+const D=`aa|a|Amino acid|Building block of proteins; about 22 combine to form most protein in a horse's body.|ess bcaa gln|Amino Energy Gold
+ess|a|Essential amino acid|One of ten amino acids the body cannot make, so it must come from the diet.|aa lys met thr trp|Amino Energy Gold
+bcaa|a|BCAA|Branched-chain amino acids (leucine, isoleucine, valine) that support muscle energy and rapid recovery.|aa car acid|Amino Quick Charge, Muscle Build
+lys|a|Lysine|First limiting amino acid in horses; key for protein synthesis, bone and collagen.|ess met thr col|Muscle Build, Suspensory Ligament
+met|a|Methionine|Sulphur-containing amino acid that supports coat and hoof keratin.|ess ker lys|Biotin Hoof Support
+thr|a|Threonine|Essential amino acid, usually the second or third most limiting for protein synthesis.|ess lys|Muscle Build
+trp|a|Tryptophan|Essential amino acid that is a precursor of serotonin, used for calming.|ess sero|Calming Support
+gln|a|Glutamine|Most plentiful amino acid; supports gut lining, immunity and muscle, and becomes essential under stress.|aa dys|Glutamine
+bal|a|Beta-alanine|Non-essential amino acid that, with histidine, raises carnosine in muscle.|car acid|Amino Quick Charge
+car|a|Carnosine|Muscle dipeptide that buffers hydrogen ions and delays fatigue.|bal acid bcaa|Amino Quick Charge
+tyr|a|L-tyrosine|Amino acid used to make catecholamines that signal the sweat glands.|cat anh|Sweat Easy
+elec|e|Electrolyte|Mineral (sodium, potassium, chloride) carrying an electric charge; regulates nerves, muscles and water balance.|sweat hyd mag|Electrosal, Carbolite Plus
+sweat|e|Sweat loss|Horses cool by sweating, losing electrolytes that must be replaced.|elec anh|Electrosal
+gly|e|Glycogen loading|Carbohydrate loading before competition to stock muscle energy stores.|cc malto dose|Equine Plus
+cc|e|Complex carbohydrate|Slow-release carbohydrate giving sustained energy.|gly malto|Equine Plus, Carbolite Plus
+malto|e|Maltodextrin|Easily digested carbohydrate used as a quick energy source.|cc gly|Equine Plus
+anae|e|Anaerobic metabolism|Energy production without oxygen at high intensity; it generates lactic acid.|lac gly|Equine Plus
+lac|e|Lactic acid|By-product of hard exercise that raises hydrogen ions and brings on fatigue.|acid anae car|Amino Quick Charge
+acid|e|Muscle acidosis|Fall in muscle pH from hydrogen build-up; causes fatigue and tying-up.|lac car tie bcaa|Amino Quick Charge
+tie|e|Tying-up|Muscle cramping and stiffness after exertion.|acid elec|Amino Quick Charge
+bio|b|Bioavailability|Share of a nutrient that is absorbed and usable by the body.|chel cacit sil|Most products
+chel|b|Bioplex / chelated minerals|Minerals bound to amino acids or organic carriers for better absorption.|bio cu iron zn|Copper Plus, Vitamin AD3
+zn|b|Zinc and manganese|Trace minerals for hooves, coat, collagen and bone.|chel col ker|Calphos Gold, Biotin Hoof Support
+cacit|b|Calcium citrate|Highly bioavailable calcium form absorbed with or without food.|bio bone vd|Calcitrate
+sil|b|Silicon|Bioavailable (ortho silicic acid) silicon for collagen, bone density and hooves.|col zeo bone|Silequine Plus
+zeo|b|Sodium zeolite|Mineral source of bioavailable silicon.|sil|Calphos Gold
+cho|b|Choline|Organic compound that forms acetylcholine; suggested after EPM.|epm|Silequine Plus
+epm|b|EPM|Equine protozoal myeloencephalitis, a disease of the nervous system.|cho|Silequine Plus
+vd|b|Vitamin D|Regulates calcium and phosphorus absorption; supports bone and immune function.|bone cacit|Vitamin AD3, Omega 369 Bold
+bone|b|Bone remodeling|Constant bone turnover that is stressed in race-training horses.|vd cacit sil|Vitamin AD3
+glu|j|Glucosamine|Building block of cartilage molecules; helps joint repair and lubrication.|chon gag hyal|Carti-Flex, Equine Joint Premium
+chon|j|Chondroitin sulphate|Glycosaminoglycan that is a structural component of cartilage.|glu gag|Carti-Flex
+gag|j|GAGs / proteoglycans|Large cartilage molecules that give joints their cushioning, shock-absorbing quality.|glu chon|Equine Joint Premium
+hyal|j|Hyaluronic acid|Joint lubricant found in synovial fluid.|syn glu|Carti-Flex, Suspensory Ligament
+syn|j|Synovial fluid|Lubricating fluid inside joints.|hyal|Suspensory Ligament
+msm|j|MSM|Methyl sulfonyl methane; bioavailable sulphur for collagen, cartilage, skin and hoof.|col ker wd|MSM Plus, MSM Aloe Gel
+col|j|Collagen|Main structural protein of tendons, ligaments, cartilage and skin.|msm vc cp sil lys|Collagen Peptide
+vc|j|Vitamin C|Boosts collagen production and acts as an antioxidant.|col ox|Collagen Plus Whey, Carti-Flex
+cp|j|Collagen peptide|Hydrolysed collagen in small, absorbable pieces (types I and III).|col vc|Collagen Peptide, Collagen Plus Whey
+sus|j|Suspensory ligament|Limb ligament whose injuries are common and serious.|col glu lys|Suspensory Ligament
+cu|j|Copper|Cofactor for forming collagen and elastin; supports red blood cells.|col chel rbc|Copper Plus
+hga|g|Hindgut acidosis|Excess acidity in the large intestine, often from starch overload; linked to colic and laminitis.|lam colic buf dys|Hind Gut Plus
+lam|g|Laminitis|Painful hoof condition that can follow severe hindgut acidosis.|hga dys|Hind Gut Plus, Equi Digest
+colic|g|Colic|Abdominal pain from digestive problems or dehydration.|hga hyd dys|Equi Quench
+buf|g|Hindgut buffer (encapsulation)|Sodium bicarbonate coated in oil so it reaches the hindgut intact.|hga|Hind Gut Plus
+pro|g|Probiotic|Live beneficial bacteria such as Lactobacillus and Bifidobacterium.|pre dys|Equi Digest
+pre|g|Prebiotic (MOS / FOS)|Mannan and fructo-oligosaccharides that feed good bacteria and bind pathogens.|pro dys|Equi Digest
+dys|g|Dysbiosis|Imbalance of gut bacteria that can lead to toxin release and inflammation.|pro pre hga|Equi Digest
+hyd|g|Hydration|Body water balance; encouraging drinking helps prevent colic.|colic elec|Equi Quench
+eiph|r|EIPH|Exercise-induced pulmonary haemorrhage: lung capillaries rupture during intense work.|cap bflav rbc|Bioflavit Plus
+cap|r|Capillary strength|Resilience of the tiny blood vessels that can burst under strain.|eiph bflav vc|Bioflavit Plus
+bflav|r|Bioflavonoids|Plant compounds (rutin, hesperidin) that strengthen capillaries.|eiph cap|Bioflavit Plus
+rao|r|RAO|Recurrent airway obstruction, a chronic breathing problem.|nac bron|Resp-Q
+bron|r|Bronchodilator|Substance that relaxes airway muscles to widen the airways.|rao|Resp-Q
+nac|r|NAC|N-acetyl cysteine, an antioxidant that protects lung tissue.|rao ox|Resp-Q
+rbc|r|Red blood cells|Carry oxygen; supported by iron, B12 and folic acid.|iron b12 eiph cu|Iron Power, Bioflavit Plus
+iron|r|Iron amino-acid chelate|Iron bound to amino acids for maximum absorption.|rbc chel|Iron Power
+bt|h|Biotin|B vitamin vital for hoof growth, skin and coat.|ker met|Biotin Hoof Support
+ker|h|Keratin|Protein that makes up hooves and hair; needs sulphur.|bt met msm zn|Re-Hoof Advance
+tar|h|Pine tar|Natural antiseptic and moisture barrier applied to hooves.|thrush|Re-Hoof Advance, Hoof Cream
+thrush|h|Thrush and white line disease|Common bacterial and fungal hoof infections.|tar|Re-Hoof Advance
+omega|h|Omega 3, 6 and 9|Unsaturated fatty acids for coat shine, stamina and lower inflammation.|orz crb vd|Omega 369 Bold
+orz|h|Gamma oryzanol|Rice-bran antioxidant that supports metabolism.|omega crb|Crude Rice Bran Oil
+crb|h|Crude rice bran oil|Fat source giving high-calorie "cool energy" without excess starch.|omega orz|Crude Rice Bran Oil
+anh|h|Anhidrosis|Reduced ability to sweat despite rising body temperature.|tyr cat sweat|Sweat Easy
+cat|h|Catecholamines|Epinephrine and norepinephrine, the signals that trigger sweating.|tyr anh|Sweat Easy
+ox|o|Oxidative stress|Imbalance when free radicals exceed antioxidants, common in hard exercise.|ros ve se nac vc|Sel-Vit-E, E 6000
+ros|o|Free radicals / ROS|Reactive oxygen species that damage DNA, proteins and fats.|ox|Sel-Vit-E
+ve|o|Vitamin E|Antioxidant that protects muscle cell membranes.|ox se|Sel-Vit-E, E 6000
+se|o|Selenium (Selplex)|Organic selenium from yeast; supports cell membranes and immunity.|ve ox|Sel-Vit-E, E 6000
+vb|v|B-complex vitamins|Group that converts feed to energy and supports red cells and nerves.|thi b12 fol|Vitamin B Plex
+thi|v|Thiamine (B1)|Carbohydrate metabolism; deficiency can cause nervousness.|vb sero|Vitamin B Plex, Calming Support
+b12|v|Cobalamin (B12)|Needed for red blood cells and the nervous system.|vb rbc|Vitamin B Plex
+fol|v|Folic acid (B9)|Helps make haemoglobin and red blood cells together with B12.|vb rbc b12|Vitamin B Plex
+sero|v|Serotonin|Calming neurotransmitter made from tryptophan.|trp thi mag|Calming Support
+mag|v|Magnesium|Mineral used for calming and nerve function.|sero elec|Calming Support
+gmp|q|GMP|Good Manufacturing Practice: the quality standard behind every product.|pharma antid|All products
+pharma|q|Pharma grade|Pharmaceutical-quality ingredients used in the range.|gmp|All products
+antid|q|Anti-doping|Batches are tested to be free of banned substances for racing.|gmp wd|All products
+wd|q|Withdrawal time|Days to stop a product before racing (e.g. 5 for MSM, 14 for Resp-Q).|antid msm|Calphos Gold, Resp-Q
+mbw|q|Mature body weight|Doses are for a 500 kg horse and must be adjusted to the horse.|dose|Most products
+dose|q|Loading vs maintenance dose|Short high-dose build-up versus the everyday dose.|mbw gly pal|Equine Plus, Resp-Q
+pal|q|Palatable base|Flavoured carrier that makes supplements easy to eat.|dose|Most products`;
+const T={},cats=Object.keys(C),by={};cats.forEach(k=>by[k]=[]);
+D.split("\n").forEach(l=>{const p=l.split("|");T[p[0]]={id:p[0],c:p[1],n:p[2],m:p[3],r:p[4].split(" "),p:p[5]};by[p[1]].push(p[0])});
+const pr={};cats.forEach(k=>pr[k]=[]);
+const FU={};
+`p_aeg|Balanced essential amino acids matching horse muscle to build stamina and performance; Builds lean muscle and strong bones in young and growing horses; Complete amino acid formula for performance and racing horses; High BCAA levels aid rapid energy recovery
+p_aqc|Muscle-buffering formula delays exercise-induced fatigue; Raises muscle carnosine to buffer lactic acid; Helps hold peak speed and focus for longer; Supports endurance training and performance; Replaces sodium lost in sweat and improves hydration; Antioxidant support and helps prevent cramping and tying-up; Feed daily for a month before the first race and through the season
+p_mb|BCAA support for muscle growth and strength; Supports muscle development and overall appearance; Promotes stamina for longer exercise sessions; Helps leaner muscle growth and bone development; Reduces exercise-induced lactic acid build-up; Dose guide: weanlings 50 g, yearlings and adults 100 g
+p_gln|Oral nutritional support for the gastrointestinal system; Stimulates the immune system and reduces illness after prolonged endurance training; Supports immunity, gut integrity, insulin secretion, neurological activity and muscle protein synthesis; Fed twice daily
+p_ep|Simple and slow-release carbohydrates for energy before and after training; Delays the switch to anaerobic metabolism, enhancing stamina; B vitamins support carbohydrate metabolism; Electrolytes help rebalance and repair cells; Can be added to the ration or dissolved in water; Keep clean water available at all times
+p_cp|Fast-absorbing simple and complex carbohydrates for immediate and prolonged action; Electrolytes matched to horse sweat; Maintains electrolyte balance and supports cardiovascular, immune and neurological function; Supports mineral balance in heavy exercise or shipping in hot weather; Extra 60 g after hard work, hot weather or travel
+p_es|Electrolyte supplement matched to the composition of horse sweat; Replaces minerals lost in sweat and increases thirst response; Supports cardiovascular, immune and neurological function; Maintains mineral balance in heavy exercise or hot-weather shipping; Feed twice daily in hot weather, heavy work or travel
+p_cg|Optimises bone growth and development; Ideal for foals in rapid growth and for pregnant or lactating mares; Helps prevent calcium, phosphorus and vitamin A and D deficiencies; Strengthens bones and increases bone density; Contains MSM so withdraw 5 days before racing
+p_cc|Highly bioavailable calcium that absorbs more easily than calcium carbonate; Promotes consolidation and maintenance of bone; Trace minerals and vitamin D improve calcium effect on bone density and lower fracture risk; Supports normal growth and bone maintenance; Mix with the horse's balanced diet
+p_sp|Supports bones, cartilage, tendons, hooves and coat; Maintains skeleton integrity and reduces injury in performance horses; Organic silicon for maximum absorbability; Plays a role in bone formation and prevents demineralisation; Maintains proper nerve function; Choline suggested for post-EPM supplementation; Scoop guide: two-year-olds and mares three level scoops, weanlings two, yearlings one
+p_fm|Complete milk substitute for orphan or rejected foals; Milk proteins, vitamins and minerals for balanced nutrition; Fortified with 24 essential vitamins and minerals; Mixes easily in water for good digestion; Adjust amounts to support body condition and growth
+p_cu|Maintains collagen and elastin in tissues; Supports bones, blood vessels, nerves and immune function; Contributes to iron absorption and energy production; Helps form cartilage, tendons and ligaments together with manganese and zinc
+p_msm|Natural joint support; Supports healthy skin, coat and hoof quality; Sulphur for collagen synthesis in cartilage and connective tissue; No artificial flavours or fillers
+p_colp|Supports cartilage, tendons and ligaments, joint function and mobility; Helps prevent joint-related injuries; Keeps skin hydrated for a glossier coat; Strengthens hooves; Contains type I and III collagen
+p_cpw|Vitamin C and collagen give stronger tendons and ligaments; Speeds healing of tendons and ligaments after intense exercise; Supports joint function and mobility; Eases joint inflammation and damage; Improves coat gloss and hoof integrity
+p_ejp|Keeps joints lubricated and supports healthy joint and hip function; Therapeutic levels of connective tissue ingredients; MSM provides bioavailable sulphur; Safe for long-term daily use without gastrointestinal side effects; Ponies 25-50 g/day
+p_cf|Aids cartilage health and elasticity; High quality glucosamine, a precursor of GAGs; Chondroitin as a structural cartilage component; Balanced, rapidly absorbed glucosamine to chondroitin ratio; Designed for working, performing and aged horses
+p_sl|Supports joints, tendons and ligaments; DHA may help with respiratory problems; Supports gut health and muscle function; Strong hooves and good coat quality; Lysine, methionine and threonine for protein synthesis; Improves cysteine availability for coat quality
+p_mag|Natural way to reduce pain and inflammation; Supports relief of joint, tendon, leg and muscle discomfort and swelling; Easy gel application with no burning sensation; Safe under wraps; Aloe vera aids healing and blood flow; External use only
+p_mv|Ideal for all breeds on light or moderate work or in later life; Increases the nutrient content of the diet; Vitamins and minerals vital to performance, growth, immune function and reproduction; Supports rapid bone and muscle growth in young horses; Suits horses on premixed feeds; Foals, weanlings and ponies 25 g
+p_vbp|Blood cell formation and optimal metabolism; Promotes appetite, energy, stamina and performance under training stress; Supports muscle recovery and the nervous system; For horses on high cereal, low forage diets or poor-quality forage; For horses changing feed or environment, older horses and those with reduced appetite; Palatable malt syrup base
+p_ip|Supports red blood cell production; Iron amino-acid chelate for maximum absorption; Readily used in energy production; Highly palatable liquid; Meets deficiencies and adds support for competition
+p_vad|Stronger bones that help prevent bone remodelling in race-training horses; Maintains calcium and phosphorus balance and skeleton integrity; Trace elements and vitamin D improve calcium effect and reduce fracture risk; Supports immune function; Vitamin A is an antioxidant for vision, reproduction and immunity
+p_cs|Calms horses and brings positive behaviour changes; Supports immune system and brain development; Helps red blood cell formation and nervous system function; B vitamins for carbohydrate metabolism; Improves stamina by optimising cell metabolism
+p_hgp|Anti-ulcer benefits from calcium and magnesium carbonate; Buffers the hindgut, not just the stomach; Encapsulated bicarbonate reaches the hindgut to reduce acidosis; Helps horses on grain-heavy diets at risk of starch or fructan overload; Addresses signs of acidosis such as tying-up, colic, wood chewing and weight loss
+p_ed|Improves digestion and nutrient absorption; Supports immune function; Reduces digestive upsets such as diarrhoea, IBD and colic; Helps prevent laminitis; Enhances feed efficiency and weight maintenance; Helps in stress such as travel, competition and diet changes; Store cool or refrigerated
+p_eq|Encourages water intake to prevent dehydration and colic; Replenishes sodium lost through sweat; Enhances digestive enzyme production for better nutrient breakdown; Moderate fibre aids gut motility; Apple and molasses flavour entices the horse to drink
+p_rq|Strengthens defence against bacterial and viral infections; Reduces inflammation and soothes airway irritation; Natural bronchodilator that improves airflow; Shields lungs from RAO and pulmonary stress; Loading dose for 3-4 months, then maintenance; Not for pregnant mares or breeding stallions
+p_bf|Reduces airway and lung inflammation; Strengthens capillary walls; Complete nutritional supplement for problems associated with haemorrhage; Helps regenerate red blood cells
+p_bhs|Hoof and coat conditioner for all types of horse; Gives strength against soft or weak hooves; Strong hooves mean less lameness and soreness; Organic zinc to enhance hoof growth; Lysine and methionine for hair, skin and hooves; Supports elastin, collagen and keratin production
+p_rha|Prevents dry, brittle, cracked hooves by locking in moisture; Protects against bacterial and fungal infections such as thrush and white line disease; Stimulates blood flow for healthy hoof growth; Strong aroma deters flies; For external use only
+p_hc|Retains hoof moisture; pine tar is a natural antiseptic; Makes the hoof elastic and flexible and promotes new hoof growth; Bio-enhancers raise availability of biotin and methionine; Total hoof care; Not for young animals or pregnant and lactating females
+p_o369|Supports stamina and speed; Promotes muscle tone and lean gains; Reduces recovery time and helps maintain body weight; Enhances coat shine and vitality; Ideal for pre-race conditioning; Reduces exercise-induced inflammation and oxidative damage; Supports joint flexibility and bone strength
+p_crb|High-calorie cool energy without excess starch; Supports healthy weight gain and body condition; Enhances coat shine and skin condition; Reduces exercise-induced muscle stress and inflammation; Improves fat metabolism and endurance; Introduce gradually over 7-10 days
+p_se|Improves sweat production, regulating body temperature; Maintains normal thyroid and respiratory function; Keeps the horse relaxed and focused; Maintains healthy, hydrated skin and coat; Nutritional support for anhidrosis
+p_sh|Aloe Vera: hydrates and soothes skin and softens the coat; Lemon and Mint: cleanses, controls odour and gives a cooling feel; Neem Anti-Lice: anti-lice, antifungal and restores mane and tail; Vettiver: skin balancing, helps dandruff and gives UV protection; Apply to wet coat, leave 3-5 minutes (up to 1 hour for skin issues), rinse well
+p_sv|Supports muscular, nervous and immune systems; Collagen production for skin, nail and hair health; Promotes repair of damaged tissues and cells; Supports reproductive, cellular and neuromuscular function; Organic selenium protects cell membranes
+p_e6|Supports muscular, nervous and immune function; Collagen production for skin, nail and hair; Improves bones, teeth, joints and cartilage; Promotes repair of damaged tissues; Supports reproductive and neuromuscular function; Calcium replaces that lost in intense exercise`.split("\n").forEach(l=>{const p=l.split("|");FU[p[0]]=p[1]});
+const feat=t=>t.pr&&FU[t.id]?`<h3>Features and uses</h3><ul class="fu">${FU[t.id].split(";").map(s=>`<li>${s.trim()}</li>`).join("")}</ul>`:"";
+const PD=`p_aeg|a|Amino Energy Gold|Essential amino acid blend for lean muscle in growing horses. 25 g twice daily; 100 g/day for four days before competition. 1.5 and 5 kg.|aa ess bcaa lys gln dose|
+p_aqc|a|Amino Quick Charge|Beta-alanine, BCAA and electrolytes that delay fatigue. 15 g twice daily, 15 min before training. 1.5 kg.|bal car bcaa acid lac elec ve se vc tie|
+p_mb|a|Muscle Build|Muscle mass formula with lysine, methionine, threonine and BCAA. Weanlings 50 g, adults 100 g. 5 and 10 kg.|lys met thr bcaa lac|
+p_gln|a|Glutamine|Pure L-glutamine for gut, immune and muscle support. 5 g scoop, twice daily. 1 kg.|gln dys|
+p_ep|e|Equine Plus|Carbohydrate energiser. Loading dose 200 g three times daily from 3 days pre-race; 100 g for recovery. 10 kg.|gly cc malto anae dose elec|
+p_cp|e|Carbolite Plus|Electrolyte replenisher with complex carbohydrates matched to horse sweat. 60 g/day. 5 kg.|elec cc sweat|
+p_es|e|Electrosal|Balanced oral electrolytes with trace minerals. 70 g/day, twice daily in heat. 5 and 10 kg.|elec sweat chel zn|
+p_cg|b|Calphos Gold|Calcium, phosphorus and silicon for bones and connective tissue. Mares 120 g, young stock 50 g. Contains MSM: withdraw 5 days before racing. 10 and 20 kg.|zeo msm lys zn wd vd bio|
+p_cc|b|Calcitrate|Calcium citrate and trace minerals for bone growth. Juveniles 50-75 g, adults 100-125 g. 10 kg.|cacit bio vd zn bone|
+p_sp|b|Silequine Plus|Silicon and choline for bone, cartilage, tendon and coat. 10 g/day. 10 kg.|sil cho epm bone col|
+p_fm|b|Foal Milk Plus|Milk replacer for orphan or rejected foals. Two heaped scoops in 300-400 ml lukewarm water. 10 kg.|vd bio chel|
+p_cu|j|Copper Plus|Copper, manganese, zinc and vitamin E for connective tissue. 25 g/day. 5 kg.|cu col chel zn ve|
+p_msm|j|MSM Plus|99% pure MSM for natural joint support. 5-10 g/day. 1 kg.|msm col ker|
+p_colp|j|Collagen Peptide|Bovine collagen peptide for tendons, ligaments and joints. 10 g/day. 5 kg.|cp col|
+p_cpw|j|Collagen Plus Whey|Collagen, vitamin C and whey protein for tendon and ligament repair. 50 g/day. 1.5 kg.|cp col vc|
+p_ejp|j|Equine Joint Premium|MSM, glucosamine, chondroitin and hyaluronic acid for all classes of horse. Adults 50-75 g/day. 5 kg.|glu chon hyal msm gag chel|
+p_cf|j|Carti-Flex|Glucosamine, chondroitin, hyaluronic acid and vitamin C for cartilage repair. One 50 g sachet/day. Pouches and 5 kg.|glu chon hyal vc chel|
+p_sl|j|Suspensory Ligament|Collagen, chondroitin, DHA, glucosamine and amino acids for ligament support. 30 g/day. 1 kg.|sus col chon glu hyal lys met thr zn|
+p_mag|j|MSM Aloe Gel|Topical gel (10% MSM, aloe vera) to soothe stiff, sore muscles and joints. Apply 2-3 times daily. 1 kg.|msm col|
+p_mv|v|Minerovit Plus|Balanced vitamin, mineral and amino acid blend. Adults 50 g, foals and ponies 25 g. 5 and 10 kg.|vb chel bio|
+p_vbp|v|Vitamin B Plex|Liquid B-complex for the working horse. 50 ml/day; 100 ml twice daily in training. 5 L.|vb thi b12 fol bt|
+p_ip|v|Iron Power|Liquid iron amino-acid chelate with B vitamins. 50 ml/day; 100 ml twice daily in training. 5 kg.|iron rbc vb b12 fol|
+p_vad|v|Vitamin AD3|Vitamins A and D3 with trace minerals for bone and immune health. 50 g/day. 1.5 and 5 kg.|vd bone chel|
+p_cs|v|Calming Support|Magnesium, tryptophan and B vitamins to calm excitable horses. 30 g/day. 1.5 kg.|mag trp sero thi b12 vb|
+p_hgp|g|Hind Gut Plus|Hindgut buffer with encapsulated sodium bicarbonate. 60 g/day in feed. 1 and 5 kg.|buf hga lam|
+p_ed|g|Equi Digest|Probiotic and prebiotic blend. 10 g/day for prevention, 20 g for severe cases. 300 g and 1 kg.|pro pre dys hga colic lam|
+p_eq|g|Equi Quench|Flavoured hydration solution that encourages drinking. One 80 g sachet in 5 L water. 2.5 kg and 800 g.|hyd colic elec|
+p_rq|r|Resp-Q|Herbal respiratory liquid. 50 ml twice daily; withdraw 14 days before competition. 1 L.|rao bron nac vc ve wd|
+p_bf|r|Bioflavit Plus|Bioflavonoids and vitamins C, K, B6, B12 for EIPH support. 30 g/day. 1 and 5 kg.|eiph cap bflav vc rbc b12|
+p_bhs|h|Biotin Hoof Support|Biotin, lysine, methionine and zinc for hoof growth. Adults 50 g/day. 1 and 5 kg.|bt ker lys met zn chel|
+p_rha|h|Re-Hoof Advance|Hoof cream with pine tar, MSM and tea tree oil. Thin layer up to 3 times a week. 1 kg.|tar thrush msm ker|
+p_hc|h|Hoof Cream|Pine tar, lanolin, biotin and methionine cream. Apply 3-4 times a week. 1 and 5 kg.|tar bt met ker|
+p_o369|h|Omega 369 Bold|Omega oil blend with vitamins D and E. Adults 50-150 ml/day. 10 L.|omega vd ve orz|
+p_crb|h|Crude Rice Bran Oil|Cool-energy oil. 30-60 ml/day general, 60-120 ml performance. 10 and 20 L.|crb omega orz ve|
+p_se|h|Sweat Easy|Support for anhidrosis with L-tyrosine, selenium and vitamins. 30 g/day. 1 kg.|anh tyr cat se ve vc|
+p_sh|h|Equine Shampoos|Four 1 L herbal shampoos: Aloe Vera, Lemon and Mint, Neem Anti-Lice, and Vettiver.||
+p_sv|o|Sel-Vit-E|Vitamin E, vitamin C and selenium antioxidant. 50 g/day. 5 and 10 kg.|ve se vc ox ros|
+p_e6|o|E 6000|High-potency vitamin C, E and selenium with calcium. 30 g/day. 5 kg.|ve se vc ox ros|`;
+PD.split("\n").forEach(l=>{const p=l.split("|");T[p[0]]={id:p[0],c:p[1],n:p[2],m:p[3],r:p[4].split(" "),pr:1};pr[p[1]].push(p[0])});
+const sec=(h,a)=>a.length?`<h3>${h}</h3><div class="rel">${a.map(r=>`<button data-i="${r}" style="--c:${C[T[r].c][1]}">${T[r].n}</button>`).join("")}</div>`:"";
+const adj={};Object.keys(T).forEach(i=>adj[i]=new Set());
+Object.values(T).forEach(t=>t.r.forEach(r=>{if(T[r]){adj[t.id].add(r);adj[r].add(t.id)}}));
+const NS="http://www.w3.org/2000/svg",svg=document.getElementById("svg"),cx=900,cy=900;
+const mk=(n,a,p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
+const gE=mk("g",{},svg),gX=mk("g",{},svg),gN=mk("g",{},svg);
+const nn=k=>Math.max(by[k].length,Math.ceil(pr[k].length*1.25)),total=cats.reduce((s,k)=>s+nn(k)+1.5,0);let ang=-Math.PI/2;const radii=[330,440,550],pos={};
+const nodes={};
+function pill(g,x,y,txt,col,filled,fs){const w=txt.length*fs*.56+16,h=fs+10;const r=mk("g",{class:"node",tabindex:0,role:"button"},g);
+mk("rect",{x:x-w/2,y:y-h/2,width:w,height:h,rx:h/2,fill:filled?col:"var(--pill)",stroke:col,"stroke-width":2},r);
+mk("text",{x,y:y+fs*.35,"text-anchor":"middle","font-size":fs,fill:filled?"#fff":"var(--ink)","font-weight":filled?700:500},r).textContent=txt;return r}
+cats.forEach(k=>{const n=nn(k),span=(n+1.5)/total*Math.PI*2,mid=ang+span/2;
+const px=cx+190*Math.cos(mid),py=cy+190*Math.sin(mid);pos[k]={x:px,y:py};
+mk("path",{class:"edge",d:`M${cx} ${cy}L${px} ${py}`,stroke:C[k][1]},gE);
+by[k].forEach((id,i)=>{const a=ang+span*(.75+i*n/by[k].length)/(n+1.5),rad=radii[i%3];const x=cx+rad*Math.cos(a),y=cy+rad*Math.sin(a);pos[id]={x,y};
+mk("path",{class:"edge",d:`M${px} ${py}L${x} ${y}`,style:`stroke:${C[k][1]};opacity:.35`},gE)});
+pr[k].forEach((id,i)=>{const m=pr[k].length,a=ang+span*(.75+i*n/m)/(n+1.5),rad=[690,780][i%2],x=cx+rad*Math.cos(a),y=cy+rad*Math.sin(a);pos[id]={x,y};mk("path",{class:"edge",d:`M${px} ${py}L${x} ${y}`,style:`stroke:${C[k][1]};opacity:.12;stroke-dasharray:3 4`},gE)});ang+=span});
+pill(gN,cx,cy,"Bekwick Equine",  "#1f3d2f",true,16).dataset.k="root";
+cats.forEach(k=>{const e=pill(gN,pos[k].x,pos[k].y,C[k][0],C[k][1],true,12);e.onclick=()=>{if(!moved){selCat(k);focusGroup(k)}};nodes[k]=e;e.dataset.k=k});
+const xs=[];const seen=new Set();
+Object.keys(T).forEach(i=>adj[i].forEach(j=>{const key=[i,j].sort().join();if(seen.has(key))return;seen.add(key);
+const a=pos[i],b=pos[j],qx=(a.x+b.x)/4+cx/2,qy=(a.y+b.y)/4+cy/2;
+const p=mk("path",{class:"x",d:`M${a.x} ${a.y}Q${qx} ${qy} ${b.x} ${b.y}`,stroke:C[T[i].c][1]},gX);p.dataset.a=i;p.dataset.b=j;xs.push(p)}));
+Object.values(T).forEach(t=>{const e=pill(gN,pos[t.id].x,pos[t.id].y,t.n,C[t.c][1],false,11);if(t.pr){const rc=e.firstChild;rc.setAttribute("stroke-dasharray","4 3");rc.setAttribute("rx",5);rc.setAttribute("fill",C[t.c][1]+"22")}e.onclick=e.onkeydown=ev=>{if(ev.type==="keydown"&&ev.key!=="Enter")return;if(moved)return;sel(t.id)};nodes[t.id]=e});
+function show(set){Object.entries(nodes).forEach(([k,e])=>e.classList.toggle("dim",set&&!set.has(k)))}
+const side=document.getElementById("side");
+function sel(id){const t=T[id],rel=[...adj[id]];show(new Set([id,t.c,...rel]));
+xs.forEach(p=>p.classList.toggle("hi",p.dataset.a===id||p.dataset.b===id));
+side.innerHTML=`<span class="tag" style="background:${C[t.c][1]}">${C[t.c][0]}${t.pr?" · Product":""}</span><h2>${t.n}</h2><p>${t.m}</p>${feat(t)}${sec(t.pr?"Key terms inside":"Related terms",rel.filter(r=>!T[r].pr))}${t.pr?"":sec("Products containing it",rel.filter(r=>T[r].pr))}`;
+side.querySelectorAll("button").forEach(b=>b.onclick=()=>{sel(b.dataset.i);focusOn(b.dataset.i)})}
+function selCat(k){const s=new Set([k,...by[k],...pr[k]]);show(s);xs.forEach(p=>p.classList.remove("hi"));
+side.innerHTML=`<span class="tag" style="background:${C[k][1]}">Topic group</span><h2>${C[k][0]}</h2><p>${by[k].length} terms and ${pr[k].length} products</p><div class="rel">${[...by[k],...pr[k]].map(r=>`<button data-i="${r}" style="--c:${C[k][1]}">${T[r].n}</button>`).join("")}</div>`;
+side.querySelectorAll("button").forEach(b=>b.onclick=()=>{sel(b.dataset.i);focusOn(b.dataset.i)})}
+function focusGroup(k){const ids=[k,...by[k],...pr[k]],X=ids.map(i=>pos[i].x),Y=ids.map(i=>pos[i].y),r=svg.getBoundingClientRect(),ar=r.width/r.height,x0=Math.min(...X)-90,x1=Math.max(...X)+90,y0=Math.min(...Y)-50,y1=Math.max(...Y)+50;const w=Math.max(x1-x0,(y1-y0)*ar);vb.w=w;vb.h=w/ar;vb.x=(x0+x1)/2-w/2;vb.y=(y0+y1)/2-vb.h/2;apply()}
+function reset(){show(null);xs.forEach(p=>p.classList.remove("hi"))}
+// chips
+const chips=document.getElementById("chips");
+cats.forEach(k=>{const b=document.createElement("button");b.className="chip";b.style.setProperty("--c",C[k][1]);b.textContent=C[k][0];b.onclick=()=>{selCat(k);focusGroup(k)};chips.appendChild(b)});
+// search
+document.getElementById("q").oninput=e=>{const v=e.target.value.trim().toLowerCase();lst.querySelectorAll("details").forEach(d=>{const t=T[d.id.slice(2)];d.style.display=!v||t.n.toLowerCase().includes(v)||t.m.toLowerCase().includes(v)?"":"none"});if(!v){reset();return}
+const s=new Set(Object.values(T).filter(t=>t.n.toLowerCase().includes(v)||t.m.toLowerCase().includes(v)).map(t=>t.id));show(s);xs.forEach(p=>p.classList.remove("hi"));
+if(s.size===1)sel([...s][0])};
+// pan & zoom
+let vb={x:0,y:0,w:1400,h:1400},moved=false,drag=null;
+function fit(){const r=svg.getBoundingClientRect(),ar=r.width/r.height;if(r.width<700){vb.w=600;vb.h=600/ar;vb.x=cx-300;vb.y=cy-vb.h/2;apply();return}vb.h=1800;vb.w=1800*ar;vb.x=cx-vb.w/2;vb.y=0;if(vb.w<1800){vb.w=1800;vb.h=1800/ar;vb.x=0;vb.y=cy-vb.h/2}apply()}
+function apply(){svg.setAttribute("viewBox",`${vb.x} ${vb.y} ${vb.w} ${vb.h}`)}
+function zoom(f,px,py){const r=svg.getBoundingClientRect();px=px??r.width/2;py=py??r.height/2;const mx=vb.x+px/r.width*vb.w,my=vb.y+py/r.height*vb.h;vb.w*=f;vb.h*=f;vb.x=mx-px/r.width*vb.w;vb.y=my-py/r.height*vb.h;apply()}
+function focusOn(id){const p=pos[id],r=svg.getBoundingClientRect(),ar=r.width/r.height;vb.w=Math.min(vb.w,r.width<700?420:700);vb.h=vb.w/ar;vb.x=p.x-vb.w/2;vb.y=p.y-vb.h/2;apply()}
+svg.addEventListener("wheel",e=>{e.preventDefault();const r=svg.getBoundingClientRect();zoom(e.deltaY>0?1.12:.89,e.clientX-r.left,e.clientY-r.top)},{passive:false});
+const ptr=new Map();let pd=0;
+svg.addEventListener("pointerdown",e=>{ptr.set(e.pointerId,{x:e.clientX,y:e.clientY});if(ptr.size===1){drag={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y};moved=false}else{drag=null;moved=true;const[a,b]=[...ptr.values()];pd=Math.hypot(a.x-b.x,a.y-b.y)}});
+window.addEventListener("pointermove",e=>{if(!ptr.has(e.pointerId))return;ptr.set(e.pointerId,{x:e.clientX,y:e.clientY});const r=svg.getBoundingClientRect();if(ptr.size===2){const[a,b]=[...ptr.values()],d=Math.hypot(a.x-b.x,a.y-b.y);if(pd)zoom(pd/d,(a.x+b.x)/2-r.left,(a.y+b.y)/2-r.top);pd=d;return}if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>5)moved=true;if(moved){vb.x=drag.vx-dx/r.width*vb.w;vb.y=drag.vy-dy/r.height*vb.h;apply()}});
+const up=e=>{ptr.delete(e.pointerId);pd=0;if(ptr.size===1){const p=[...ptr.values()][0];drag={x:p.x,y:p.y,vx:vb.x,vy:vb.y}}else if(!ptr.size){drag=null;setTimeout(()=>moved=false,0)}};
+window.addEventListener("pointerup",up);window.addEventListener("pointercancel",up);
+svg.addEventListener("click",e=>{if(!moved&&e.target===svg){reset();side.innerHTML='<p class="hint">Select any term on the map.</p>'}});
+document.getElementById("zi").onclick=()=>zoom(.8);document.getElementById("zo").onclick=()=>zoom(1.25);document.getElementById("zr").onclick=()=>{fit();reset()};
+const lst=document.getElementById("list"),mainEl=document.querySelector("main"),vt=document.getElementById("vt");
+lst.innerHTML=cats.map(k=>`<h2 style="--c:${C[k][1]}">${C[k][0]}</h2>`+[...by[k],...pr[k]].map(id=>{const t=T[id];return `<details id="d-${id}"><summary>${t.pr?"▣ ":""}${t.n}</summary><p>${t.m}</p>${feat(t)}<div class="rel">${[...adj[id]].map(r=>`<button data-j="${r}" style="--c:${C[T[r].c][1]}">${T[r].n}</button>`).join("")}</div></details>`}).join("")).join("");
+lst.onclick=e=>{const b=e.target.closest("button[data-j]");if(!b)return;const d=document.getElementById("d-"+b.dataset.j);d.style.display="";d.open=true;d.scrollIntoView({behavior:"smooth",block:"center"})};
+vt.onclick=()=>{const on=mainEl.classList.toggle("listmode");vt.classList.toggle("on",on);vt.textContent=on?"Map view":"List view";lst.hidden=!on;if(!on)fit()};
+let lw=innerWidth;addEventListener("resize",()=>{if(innerWidth!==lw){lw=innerWidth;fit()}});fit();
+</script>
+</body>
+</html>
